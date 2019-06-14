@@ -45,30 +45,25 @@ body {
 }
 
 .selector {
+  text-decoration: none;
+  transition: color .3s;
+  outline:none;
   margin: 10px 5px;
   height: 40px;
   padding: 0 15px;
   font-size: 14px;
   border-radius: 25px;
   border: none;
-  color: white;
-  background-color: #0099ff;
+  color: #ffb5b3;
+  background: none;
   text-transform: capitalize;
 }
 
 .selector:hover,
 .submit:hover {
-  background-color: rgba(0, 151, 19, 0);
-  color: #61b7f0;
-  border: 1px solid #61b7f0;
+  color: rgb(255, 216, 213);
 }
 
 .selector.selected {
-  background-color: #ff6666;
-}
-
-.selector.selected:hover {
-  color: #ff9494;
-  background-color: rgba(0, 151, 19, 0);
-  border: 1px solid #ff6666;
+  color: white;
 }
