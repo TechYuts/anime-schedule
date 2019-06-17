@@ -2,19 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import DaySelect from './components/DaySelect';
 import { Day } from './objects/Day';
+import AnimeCard from './components/AnimeCard';
 
 interface AppState {
   view: string;
   animeInfo: string[];
-  animeByDay: {
-    sunday: string[];
-    monday: string[];
-    tuesday: string[];
-    wednesday: string[];
-    thursday: string[];
-    friday: string[];
-    saturday: string[];
-  };
   selectedDay: Day;
   returned: string[];
   curGenre: string;
@@ -28,15 +20,6 @@ class App extends Component<{}, AppState> {
     this.state = {
       view: 'scheduleView',
       animeInfo: [],
-      animeByDay: {
-        sunday: [],
-        monday: [],
-        tuesday: [],
-        wednesday: [],
-        thursday: [],
-        friday: [],
-        saturday: [],
-      },
       selectedDay: Day.Monday,
       returned: [],
       curGenre: 'Action',
@@ -54,6 +37,7 @@ class App extends Component<{}, AppState> {
           <h1 id={'pageTitle'}>Anime Calendar</h1>
           <DaySelect selected={this.state.selectedDay} onDayClick={this.setDay} />
         </div>
+        <AnimeCard day={this.state.selectedDay} />
       </header>
     );
   }
