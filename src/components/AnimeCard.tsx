@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Day } from '../objects/Day';
-import Card from './layout/Card';
+import CardDetail from './layout/CardDetail';
 
 interface ApiObject {
   mal_id: number;
@@ -27,7 +27,7 @@ class AnimeCard extends Component<{ day: Day }, { animeInfo: ApiObject[] }> {
   render(): JSX.Element[] {
     return this.state.animeInfo.map(anime => {
       return (
-        <Card
+        <CardDetail
           cover={anime.image_url}
           title={anime.title}
           genres={anime.genres}
