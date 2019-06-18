@@ -13,8 +13,8 @@ interface ApiObject {
 class AnimeCard extends Component<{ day: Day }, { animeInfo: ApiObject[] }> {
   updateDetails = (): void => {
     fetch(`https://api.jikan.moe/v3/schedule/${this.props.day}`)
-      .then(results => results.json())
-      .then(data => {
+      .then((results): Promise<any> => results.json())
+      .then((data): void => {
         this.setState({ animeInfo: data[this.props.day.toLowerCase()] });
         console.log(this.state.animeInfo);
       });
@@ -25,17 +25,19 @@ class AnimeCard extends Component<{ day: Day }, { animeInfo: ApiObject[] }> {
   }
 
   render(): JSX.Element[] {
-    return this.state.animeInfo.map(anime => {
-      return (
-        <CardDetail
-          cover={anime.image_url}
-          title={anime.title}
-          genres={anime.genres}
-          synopsis={anime.synopsis}
-          id={anime.mal_id}
-        />
-      );
-    });
+    return this.state.animeInfo.map(
+      (anime): JSX.Element => {
+        return (
+          <CardDetail
+            cover={anime.image_url}
+            title={anime.title}
+            genres={anime.genres}
+            synopsis={anime.synopsis}
+            id={anime.mal_id}
+          />
+        );
+      },
+    );
   }
 }
 
