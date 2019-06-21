@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Card from '@material-ui/core/Card';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { display, fontSize } from '@material-ui/system';
 
 interface AnimeCardProperties {
   cover: string;
@@ -51,6 +50,6 @@ const styles = (theme: Theme): object => ({
 
 export default function CardDetail(props: AnimeCardProperties): JSX.Element {
   const classes = makeStyles(styles);
-
-  return <Card key={props.id}> </Card>;
+  console.log(props);
+  return <Card> </Card>;
 }
