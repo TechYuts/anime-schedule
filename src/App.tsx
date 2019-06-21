@@ -38,6 +38,7 @@ class App extends Component<{}, AppState> {
         Object.values(Day).forEach((day: Day): void => {
           data[day.toLowerCase()].forEach((series: any): void => {
             const obj: AnimeApiDto = {
+              day: day,
               genres: series.genres.map((genre: any): string => genre.name),
               imageUrl: series.image_url,
               id: series.mal_id,
@@ -48,6 +49,7 @@ class App extends Component<{}, AppState> {
           });
         });
         this.setState({ animeInfo: tmp });
+        console.log(this.state.animeInfo);
       });
   }
 
@@ -60,7 +62,7 @@ class App extends Component<{}, AppState> {
           <h1 id={'pageTitle'}>Anime Calendar</h1>
           <DaySelect selected={this.state.selectedDay} onDayClick={this.setDay} />
         </div>
-        <AnimeCard animeInfo={this.state.animeInfo} />
+        <AnimeCard animeInfo={this.state.animeInfo} daySelected={this.state.selectedDay} />
       </header>
     );
   }
