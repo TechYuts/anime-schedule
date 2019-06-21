@@ -12,6 +12,7 @@ const styles = (theme: Theme): StyleRules =>
     card: {
       display: 'inline-flex',
       margin: 10,
+      transition: 'box-shadow .6s ease',
     },
     title: {
       fontSize: 15,
@@ -28,6 +29,9 @@ const styles = (theme: Theme): StyleRules =>
     cover: {
       width: 160,
       height: 224,
+      objectFit: 'cover',
+      opacity: 0,
+      transition: 'opacity .3s',
     },
     genres: {
       display: 'flex',
